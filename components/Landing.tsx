@@ -1,7 +1,7 @@
 import Image from "next/image";
 import CustomButton from "./CustomButton";
 import CustomButtonTwo from "./CustomButtonTwo";
-import { FaArrowRight, FaGithub, FaLinkedin, FaTwitter, FaTelegram, FaInstagram } from "react-icons/fa";
+import { FaArrowRight, FaGithub, FaLinkedin, FaTelegram, FaInstagram } from "react-icons/fa";
 
 export default function LandingPage() {
     return (
@@ -9,10 +9,8 @@ export default function LandingPage() {
             <section id='home' className="bg-background dark:bg-background mt-25">
                 <div className="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
                     <div className="mr-auto place-self-center lg:col-span-7 mt-20">
-                        <p className="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400 border border-gray-200 bg-white rounded-3xl px-4 py-1 inline-block">
-                            👋 Hello, I'm
-                        </p>
-                        <h1 className="max-w-2xl mb-4 text-5xl font-extrabold tracking-tight leading-none md:text-6xl xl:text-7xl " style={{fontFamily: 'WR'}}>Kirubel Deke</h1>
+                        <p className="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400 border border-gray-200 bg-white rounded-3xl px-4 py-1 inline-block">👋 Hello, I'm</p>
+                        <h1 className="max-w-2xl mb-4 text-5xl font-extrabold tracking-tight leading-none md:text-6xl xl:text-7xl " style={{ fontFamily: 'WR' }}>Kirubel Deke</h1>
                         <p className="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">Full-Stack Web Developer. Based in Addis Ababa, Ethiopia.</p>
 
                         {/* Social Media Icons */}

@@ -2,15 +2,14 @@
 
 import { useState, useEffect, SetStateAction } from "react";
 import CustomButton from "./CustomButton";
-import { useRouter } from "next/navigation";
+import Link from "next/link";
+
 
 export default function Navbar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [activeLink, setActiveLink] = useState("#home");
     const [darkMode, setDarkMode] = useState(false);
-    const router = useRouter();
-
-    // Initialize dark mode from localStorage or system preference
+    
     useEffect(() => {
         if (typeof window !== 'undefined') {
             const savedMode = localStorage.getItem('darkMode');
@@ -48,9 +47,9 @@ export default function Navbar() {
     return (
         <nav className="fixed w-full top-0 left-0 z-50 bg-background text-foreground shadow-md">
             <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-                <a href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
+                <Link href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
                     <span className="self-center text-2xl font-semibold whitespace-nowrap" style={{ fontFamily: 'WR' }}>KD <span className="text-red-500">.</span></span>
-                </a>
+                </Link>
 
                 <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse items-center">
                    
