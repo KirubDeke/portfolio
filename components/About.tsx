@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import CustomButton from './CustomButton';
-import { FaArrowRight, FaArrowDown} from 'react-icons/fa';
+import { FaArrowRight, FaArrowDown } from 'react-icons/fa';
 import CustomButtonTwo from './CustomButtonTwo';
 
 export default function About() {
@@ -50,12 +50,14 @@ export default function About() {
                             <div>
                                 <h1 className="text-3xl lg:text-4xl font-bold text-red-500 mb-8">Software Engineer</h1>
                                 <div className="space-y-6">
-                                    <p className="text-lg font-light text-gray-500 ">I'm a passionate Software Engineer with a sharp focus on modern web development. I specialize in building fast, responsive, and scalable web applications using the latest technologies like React, Next.js, Node.js, and Tailwind CSS. Whether it's crafting sleek user interfaces or developing powerful backend systems, I bring clean code and creative problem-solving to every project. Let’s turn ideas into digital experiences!</p>
+                                    <p className="text-lg font-light text-gray-500 ">
+                                        {"I'm"} a passionate Software Engineer with a sharp focus on modern web development. I specialize in building fast, responsive, and scalable web applications using the latest technologies like React, Next.js, Node.js, and Tailwind CSS. Whether {"it's"} crafting sleek user interfaces or developing powerful backend systems, I bring clean code and creative problem-solving to every project. Let’s turn ideas into digital experiences!
+                                    </p>
                                 </div>
                                 <div className=" mt-10 flex items-center gap-8">
                                     <CustomButton className="flex items-center gap-2">
-                                         Download CV <FaArrowDown/>
-                                        
+                                        Download CV <FaArrowDown />
+
                                     </CustomButton>
                                     <CustomButtonTwo className='flex items-center gap-2'>
                                         Contact Me < FaArrowRight />

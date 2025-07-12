@@ -2,20 +2,20 @@
 
 import { FaPaperPlane } from 'react-icons/fa';
 import CustomButton from './CustomButton';
-import { useState } from 'react';
+import { ChangeEvent, FormEvent, useState } from 'react';
 import { toast } from 'react-hot-toast';
 
 export default function Contact() {
     const [form, setForm] = useState({ name: '', email: '', phone: '', message: '' });
     const [loading, setLoading] = useState(false);
 
-    const handleChange = (e: { target: { name: any; value: any; }; }) => {
+    const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         setForm({ ...form, [e.target.name]: e.target.value });
     };
 
-    const handleSubmit = async (e: { preventDefault: () => void; }) => {
+    const handleSubmit = async (e: FormEvent) => {
         e.preventDefault();
-        
+
         // Validate form fields
         if (!form.name.trim()) {
             toast.error('Please enter your name');
@@ -40,14 +40,14 @@ export default function Contact() {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(form),
             });
-            
+
             if (res.ok) {
                 toast.success('Message sent successfully!');
                 setForm({ name: '', email: '', phone: '', message: '' });
             } else {
                 throw new Error('Failed to send message');
             }
-        } catch (error) {
+        } catch {
             toast.error('Something went wrong. Please try again later.');
         } finally {
             setLoading(false);

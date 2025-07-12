@@ -1,9 +1,18 @@
 import nodemailer from 'nodemailer';
+import type { NextApiRequest, NextApiResponse } from 'next';
 
-export default async function handler(req: { method: string; body: { name: any; email: any; phone: any; message: any; }; }, res: { status: (arg0: number) => { (): any; new(): any; send: { (arg0: { message: string; }): any; new(): any; }; json: { (arg0: { message: string; }): any; new(): any; }; }; }) {
+export default async function handler(
+    req: NextApiRequest,
+    res: NextApiResponse<{ message: string }>
+) {
     if (req.method !== 'POST') return res.status(405).send({ message: 'Only POST requests allowed' });
 
-    const { name, email, phone, message } = req.body;
+    const { name, email, phone, message } = req.body as {
+        name: string;
+        email: string;
+        phone: string;
+        message: string;
+    };
 
     try {
         const transporter = nodemailer.createTransport({
@@ -16,7 +25,7 @@ export default async function handler(req: { method: string; body: { name: any; 
 
         await transporter.sendMail({
             from: email,
-            to: process.env.CONTACT_EMAIL, 
+            to: process.env.CONTACT_EMAIL,
             subject: `Message from ${name}`,
             text: `
                 Name: ${name}
