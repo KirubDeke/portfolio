@@ -1,0 +1,34 @@
+import nodemailer from 'nodemailer';
+
+export default async function handler(req: { method: string; body: { name: any; email: any; phone: any; message: any; }; }, res: { status: (arg0: number) => { (): any; new(): any; send: { (arg0: { message: string; }): any; new(): any; }; json: { (arg0: { message: string; }): any; new(): any; }; }; }) {
+    if (req.method !== 'POST') return res.status(405).send({ message: 'Only POST requests allowed' });
+
+    const { name, email, phone, message } = req.body;
+
+    try {
+        const transporter = nodemailer.createTransport({
+            service: 'gmail',
+            auth: {
+                user: process.env.CONTACT_EMAIL,
+                pass: process.env.CONTACT_PASS,
+            },
+        });
+
+        await transporter.sendMail({
+            from: email,
+            to: process.env.CONTACT_EMAIL, // your email to receive the message
+            subject: `Message from ${name}`,
+            text: `
+                Name: ${name}
+                Email: ${email}
+                Phone: ${phone}
+                Message: ${message}
+            `,
+        });
+
+        return res.status(200).json({ message: 'Email sent successfully' });
+    } catch (error) {
+        console.error('Error sending email:', error);
+        return res.status(500).json({ message: 'Email failed to send' });
+    }
+}
