@@ -36,9 +36,9 @@ const Portfolio: React.FC = () => {
   const projects: Project[] = [
     {
       id: 1,
-      title: "Modern Blog Site",
+      title: "Modern Blog Site called Curious Life",
       description: "A blog site with commenting and like system.",
-      image: "/images/Blog.jpg",
+      image: "/images/blog.png",
       siteUrl: "https://curious-life.vercel.app/",
       codeUrl: "https://github.com/KirubDeke/curious-life",
       technologies: ["Next.js", "Node.js"],
