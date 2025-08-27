@@ -5,9 +5,11 @@ import Image from 'next/image';
 import CustomButton from './CustomButton';
 import { FaArrowRight, FaArrowDown } from 'react-icons/fa';
 import CustomButtonTwo from './CustomButtonTwo';
+import { useRouter } from 'next/navigation';
 
 export default function About() {
     const [activeTab, setActiveTab] = useState('about');
+    const router = useRouter();
 
     return (
         <section id='about' className="container mx-auto px-4 py-8">
@@ -59,7 +61,9 @@ export default function About() {
                                         Download CV <FaArrowDown />
 
                                     </CustomButton>
-                                    <CustomButtonTwo className='flex items-center gap-2'>
+                                    <CustomButtonTwo 
+                                    onClick={() => router.push('#contact')}
+                                    className='flex items-center gap-2'>
                                         Contact Me < FaArrowRight />
                                     </CustomButtonTwo>
                                 </div>
